@@ -24,13 +24,13 @@ async def main():
         await asyncio.Future()  # run forever
 
 
-# if __name__ == "__main__":
-#     asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
 
 @app.get("/")
 def homepage():
     """Shows the homepage"""
     asyncio.run(main())
 
-    
+
     return render_template("index.html")
