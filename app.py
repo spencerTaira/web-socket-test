@@ -21,10 +21,13 @@ def test_connect():
 @socketio.on('message')
 def receive_msg(message):
     print(message)
+    emit('message received', f"{message} message received");
 
 @socketio.on('test')
 def receive_test(test):
     print(test)
+    emit('message received', f"{test} message received");
+
 
 # @socketio.on("score")
 

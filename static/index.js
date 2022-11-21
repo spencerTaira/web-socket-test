@@ -14,13 +14,13 @@ $BUTTON.on("click", sendMessage);
 function sendMessage(evt){
     evt.preventDefault();
     // websocket.send($FORM_INPUT.val());
-    socket.emit("test", "some other data here");
     socket.emit("message",$FORM_INPUT.val());
+    socket.emit("test", "some other data here");
 }
 
 //websocket.addEventListener("message", recieveMessage)
-socket.addEventListener("message", recieveMessage)
-function recieveMessage(data){
-    console.log(data);
-    $INCOMING.append(`<p>${data.data}</p>`)
+socket.on("message received", recieveMessage)
+function recieveMessage(message){
+    console.log(message);
+    $INCOMING.append(`<p>${message}</p>`)
 }
